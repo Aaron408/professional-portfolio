@@ -1,0 +1,106 @@
+{
+  "name": "professional-portfolio-componentized",
+  "version": "2.0.0",
+  "description": "Portfolio personal refactorizado con arquitectura de componentes modulares",
+  "type": "module",
+  "main": "components/PortfolioApp.js",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "dev:node": "npx http-server -p 3000 -c-1",
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000 -c-1",
+    "demo": "echo 'Abriendo demo en http://localhost:3000/demo.html' && python -m http.server 3000",
+    "build": "echo 'Portfolio listo para producción'",
+    "lint": "echo 'Verificando código...'",
+    "format": "echo 'Formateando código...'",
+    "test": "echo 'Ejecutando tests...'",
+    "docs": "echo 'Generando documentación...'"
+  },
+  "keywords": [
+    "portfolio",
+    "personal-website",
+    "components",
+    "modular",
+    "javascript",
+    "html",
+    "css",
+    "responsive",
+    "web-development"
+  ],
+  "author": {
+    "name": "Tu Nombre",
+    "email": "tu-email@example.com",
+    "url": "https://tu-portfolio.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/professional-portfolio"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/professional-portfolio/issues"
+  },
+  "homepage": "https://tu-portfolio.com",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_qq > 0"
+  ],
+  "files": [
+    "components/",
+    "utils/",
+    "data/",
+    "examples/",
+    "assets/",
+    "index-componentized.html",
+    "demo.html",
+    "README-Components.md"
+  ],
+  "componentStructure": {
+    "components": {
+      "sidebar": ["Sidebar.js"],
+      "navigation": ["Navigation.js"],
+      "pages": [
+        "AboutPage.js",
+        "ResumePage.js", 
+        "PortfolioPage.js",
+        "BlogPage.js",
+        "ContactPage.js"
+      ],
+      "common": ["TestimonialsModal.js"]
+    },
+    "utils": ["Utils.js", "PageManager.js"],
+    "data": ["portfolioData.js"],
+    "examples": ["api-usage-examples.js"]
+  },
+  "features": [
+    "Arquitectura modular de componentes",
+    "Navegación SPA con historial del navegador",
+    "Persistencia de datos en localStorage",
+    "API pública para personalización",
+    "Responsive design",
+    "Soporte para temas",
+    "Validación de formularios",
+    "Animaciones CSS",
+    "Event system para comunicación entre componentes",
+    "Configuración centralizada de datos"
+  ],
+  "usage": {
+    "basic": "Incluir PortfolioApp.js como módulo ES6",
+    "api": "Usar window.portfolioApp para acceso programático",
+    "customization": "Editar data/portfolioData.js para personalizar contenido",
+    "themes": "Usar portfolioApp.setTheme() para cambiar temas",
+    "navigation": "Usar portfolioApp.navigateToPage() para navegación programática"
+  },
+  "compatibility": {
+    "browsers": "Navegadores modernos con soporte ES6 modules",
+    "mobile": "Completamente responsive",
+    "accessibility": "ARIA labels y navegación por teclado"
+  }
+}

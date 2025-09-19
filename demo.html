@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Componentizado - Demo & Testing</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos adicionales para el modo demo -->
+  <style>
+    .demo-controls {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      z-index: 10000;
+      max-width: 300px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .demo-controls h3 {
+      margin: 0 0 10px 0;
+      color: #4CAF50;
+      font-size: 14px;
+    }
+
+    .demo-controls button {
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin: 2px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 11px;
+    }
+
+    .demo-controls button:hover {
+      background: #1976D2;
+    }
+
+    .demo-controls .section {
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #333;
+    }
+
+    .demo-controls .section:last-child {
+      border-bottom: none;
+    }
+
+    .console-output {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.9);
+      color: #00ff00;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      max-width: 400px;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 10000;
+      display: none;
+    }
+
+    .console-output.visible {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .demo-controls {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 10px;
+        max-width: none;
+      }
+      
+      .console-output {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: 10px;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Panel de controles para testing -->
+  <div class="demo-controls">
+    <h3>🎮 Controles de Demo</h3>
+    
+    <div class="section">
+      <strong>Navegación:</strong><br>
+      <button onclick="portfolioAPI.goToAbout()">About</button>
+      <button onclick="portfolioAPI.goToResume()">Resume</button>
+      <button onclick="portfolioAPI.goToPortfolio()">Portfolio</button>
+      <button onclick="portfolioAPI.goToBlog()">Blog</button>
+      <button onclick="portfolioAPI.goToContact()">Contact</button>
+    </div>
+
+    <div class="section">
+      <strong>Datos:</strong><br>
+      <button onclick="portfolioAPI.loadDataFromAPI()">Cargar API</button>
+      <button onclick="portfolioAPI.addSampleProjects()">+ Proyectos</button>
+      <button onclick="portfolioAPI.showUsageStats()">Estadísticas</button>
+    </div>
+
+    <div class="section">
+      <strong>UI:</strong><br>
+      <button onclick="portfolioAPI.toggleTheme()">Cambiar Tema</button>
+      <button onclick="toggleConsole()">Toggle Console</button>
+      <button onclick="clearStorage()">Reset Storage</button>
+    </div>
+
+    <div class="section">
+      <strong>Testing:</strong><br>
+      <button onclick="runAllTests()">Run Tests</button>
+      <button onclick="simulateUserFlow()">User Flow</button>
+    </div>
+  </div>
+
+  <!-- Console output -->
+  <div class="console-output" id="console-output">
+    <strong>🖥️ Console Output:</strong><br>
+    <div id="console-content"></div>
+  </div>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR (will be rendered by Sidebar component)
+    -->
+    <div class="sidebar-container">
+      <!-- Sidebar component will render here -->
+    </div>
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR (will be rendered by Navigation component)
+      -->
+      <div class="navbar-container">
+        <!-- Navigation component will render here -->
+      </div>
+
+      <!--
+        - #PAGES (will be rendered by individual page components)
+      -->
+      <div class="pages-container">
+        <!-- Page components will render here -->
+      </div>
+
+    </div>
+
+  </main>
+
+  <!--
+    - #MODAL (will be rendered by TestimonialsModal component)
+  -->
+  <div class="modal-container-wrapper">
+    <!-- Modal component will render here -->
+  </div>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!--
+    - Main application script (componentized version)
+  -->
+  <script type="module" src="./components/PortfolioApp.js"></script>
+
+  <!--
+    - API usage examples
+  -->
+  <script type="module" src="./examples/api-usage-examples.js"></script>
+
+  <!-- Demo controls script -->
+  <script>
+    let consoleVisible = false;
+    const consoleOutput = document.getElementById('console-output');
+    const consoleContent = document.getElementById('console-content');
+
+    // Override console.log para mostrar en el UI
+    const originalLog = console.log;
+    console.log = function(...args) {
+      originalLog.apply(console, args);
+      if (consoleContent) {
+        const message = args.map(arg => 
+          typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+        ).join(' ');
+        consoleContent.innerHTML += `<div>${new Date().toLocaleTimeString()}: ${message}</div>`;
+        consoleContent.scrollTop = consoleContent.scrollHeight;
+      }
+    };
+
+    function toggleConsole() {
+      consoleVisible = !consoleVisible;
+      if (consoleVisible) {
+        consoleOutput.classList.add('visible');
+      } else {
+        consoleOutput.classList.remove('visible');
+      }
+    }
+
+    function clearStorage() {
+      localStorage.clear();
+      console.log('🗑️ Storage limpiado');
+      location.reload();
+    }
+
+    function runAllTests() {
+      console.log('🧪 Ejecutando tests...');
+      
+      // Test de navegación
+      setTimeout(() => portfolioAPI.goToPortfolio(), 500);
+      setTimeout(() => portfolioAPI.goToResume(), 1000);
+      setTimeout(() => portfolioAPI.goToAbout(), 1500);
+      
+      // Test de datos
+      setTimeout(() => portfolioAPI.addSampleProjects(), 2000);
+      setTimeout(() => portfolioAPI.showUsageStats(), 2500);
+      
+      console.log('✅ Tests completados');
+    }
+
+    function simulateUserFlow() {
+      console.log('👤 Simulando flujo de usuario...');
+      
+      const flow = [
+        { action: () => portfolioAPI.goToAbout(), delay: 0, desc: 'Visitando About' },
+        { action: () => portfolioAPI.goToResume(), delay: 1000, desc: 'Navegando a Resume' },
+        { action: () => portfolioAPI.goToPortfolio(), delay: 2000, desc: 'Viendo Portfolio' },
+        { action: () => portfolioAPI.addSampleProjects(), delay: 3000, desc: 'Agregando proyectos' },
+        { action: () => portfolioAPI.goToBlog(), delay: 4000, desc: 'Leyendo Blog' },
+        { action: () => portfolioAPI.goToContact(), delay: 5000, desc: 'Visitando Contact' },
+        { action: () => portfolioAPI.toggleTheme(), delay: 6000, desc: 'Cambiando tema' },
+        { action: () => portfolioAPI.goToAbout(), delay: 7000, desc: 'Volviendo al inicio' }
+      ];
+
+      flow.forEach(step => {
+        setTimeout(() => {
+          console.log(`📍 ${step.desc}`);
+          step.action();
+        }, step.delay);
+      });
+
+      setTimeout(() => {
+        console.log('🏁 Flujo de usuario completado');
+      }, 8000);
+    }
+
+    // Log inicial
+    setTimeout(() => {
+      console.log('🎯 Demo de Portfolio Componentizado cargado');
+      console.log('📋 Utiliza los controles para probar la funcionalidad');
+    }, 1000);
+  </script>
+
+</body>
+
+</html>

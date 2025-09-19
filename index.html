@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Personal Portfolio (Componentized)</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR (will be rendered by Sidebar component)
+    -->
+    <div class="sidebar-container">
+      <!-- Sidebar component will render here -->
+    </div>
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR (will be rendered by Navigation component)
+      -->
+      <div class="navbar-container">
+        <!-- Navigation component will render here -->
+      </div>
+
+      <!--
+        - #PAGES (will be rendered by individual page components)
+      -->
+      <div class="pages-container">
+        <!-- Page components will render here -->
+      </div>
+
+    </div>
+
+  </main>
+
+  <!--
+    - #MODAL (will be rendered by TestimonialsModal component)
+  -->
+  <div class="modal-container-wrapper">
+    <!-- Modal component will render here -->
+  </div>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!--
+    - Main application script (componentized version)
+  -->
+  <script type="module" src="./components/PortfolioApp.js"></script>
+
+</body>
+
+</html>
