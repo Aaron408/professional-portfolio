@@ -5,8 +5,7 @@ class AboutPage {
     this.data = data || {
       profile: { about: ["Default about text..."] },
       services: [],
-      testimonials: [],
-      clients: []
+      certifications: [],
     };
     this.init();
   }
@@ -17,15 +16,17 @@ class AboutPage {
   }
 
   render() {
-    const { profile, services, testimonials, clients } = this.data;
-    
+    const { profile, services, certifications } = this.data;
+
     // Generate about text
-    const aboutText = profile.about.map(paragraph => 
-      `<p>${paragraph}</p>`
-    ).join('');
+    const aboutText = profile.about
+      .map((paragraph) => `<p>${paragraph}</p>`)
+      .join("");
 
     // Generate services
-    const servicesHTML = services.map(service => `
+    const servicesHTML = services
+      .map(
+        (service) => `
       <li class="service-item">
         <div class="service-icon-box">
           <img src="${service.icon}" alt="${service.title} icon" width="40">
@@ -35,31 +36,36 @@ class AboutPage {
           <p class="service-item-text">${service.description}</p>
         </div>
       </li>
-    `).join('');
+    `
+      )
+      .join("");
 
-    // Generate testimonials
-    const testimonialsHTML = testimonials.map(testimonial => `
-      <li class="testimonials-item">
-        <div class="content-card" data-testimonials-item>
-          <figure class="testimonials-avatar-box">
-            <img src="${testimonial.avatar}" alt="${testimonial.name}" width="60" data-testimonials-avatar>
-          </figure>
-          <h4 class="h4 testimonials-item-title" data-testimonials-title>${testimonial.name}</h4>
-          <div class="testimonials-text" data-testimonials-text>
-            <p>${testimonial.text}</p>
-          </div>
+    // Generate certifications by category (with error handling)
+    const certificationsHTML =
+      certifications && certifications.length > 0
+        ? certifications
+            .map(
+              (category) => `
+      <div class="certification-category">
+        <h4 class="h4 certification-category-title">${category.category}</h4>
+        <div class="badges-grid">
+          ${category.badges
+            .map(
+              (badge) => `
+            <div class="badge-item">
+              <img src="${badge.icon}" alt="${badge.name}" width="32" height="32" onerror="this.style.display='none'">
+              <span class="badge-name">${badge.name}</span>
+              <span class="badge-level">${badge.level}</span>
+            </div>
+          `
+            )
+            .join("")}
         </div>
-      </li>
-    `).join('');
-
-    // Generate clients
-    const clientsHTML = clients.map(client => `
-      <li class="clients-item">
-        <a href="${client.link}">
-          <img src="${client.logo}" alt="${client.name}">
-        </a>
-      </li>
-    `).join('');
+      </div>
+    `
+            )
+            .join("")
+        : "<p>No certifications available.</p>";
 
     this.container.innerHTML = `
       <article class="about active" data-page="about">
@@ -78,26 +84,22 @@ class AboutPage {
           </ul>
         </section>
 
-        <section class="testimonials">
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-          <ul class="testimonials-list has-scrollbar">
-            ${testimonialsHTML}
-          </ul>
+        <section class="certifications">
+          <h3 class="h3 certifications-title">Skills & Technologies</h3>
+          <div class="certifications-content">
+            ${certificationsHTML}
+          </div>
         </section>
 
-        <section class="clients">
-          <h3 class="h3 clients-title">Clients</h3>
-          <ul class="clients-list has-scrollbar">
-            ${clientsHTML}
-          </ul>
-        </section>
       </article>
     `;
   }
 
   bindEvents() {
-    const testimonialsItems = this.container.querySelectorAll("[data-testimonials-item]");
-    testimonialsItems.forEach(item => {
+    const testimonialsItems = this.container.querySelectorAll(
+      "[data-testimonials-item]"
+    );
+    testimonialsItems.forEach((item) => {
       item.addEventListener("click", (e) => {
         this.openTestimonialModal(e.currentTarget);
       });
@@ -105,7 +107,9 @@ class AboutPage {
   }
 
   openTestimonialModal(testimonialElement) {
-    const avatar = testimonialElement.querySelector("[data-testimonials-avatar]");
+    const avatar = testimonialElement.querySelector(
+      "[data-testimonials-avatar]"
+    );
     const title = testimonialElement.querySelector("[data-testimonials-title]");
     const text = testimonialElement.querySelector("[data-testimonials-text]");
 
@@ -114,7 +118,7 @@ class AboutPage {
         avatar: avatar.src,
         alt: avatar.alt,
         title: title.innerHTML,
-        text: text.innerHTML
+        text: text.innerHTML,
       });
     }
   }
@@ -124,17 +128,17 @@ class AboutPage {
   }
 
   show() {
-    this.container.style.display = 'block';
-    const article = this.container.querySelector('article');
+    this.container.style.display = "block";
+    const article = this.container.querySelector("article");
     if (article) {
-      article.classList.add('active');
+      article.classList.add("active");
     }
   }
 
   hide() {
-    const article = this.container.querySelector('article');
+    const article = this.container.querySelector("article");
     if (article) {
-      article.classList.remove('active');
+      article.classList.remove("active");
     }
   }
 }

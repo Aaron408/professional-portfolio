@@ -6,8 +6,9 @@ const portfolioData = {
     title: "FullStack Developer",
     avatar: "./assets/images/ProfilePhoto.jpg",
     about: [
-      "Soy Aaron Reyes, un desarrollador FullStack apasionado por crear soluciones tecnológicas innovadoras. Originario de Querétaro, México, me especializo en el desarrollo de aplicaciones web y móviles multiplataforma.",
-      "Mi experiencia abarca tanto el frontend como el backend, utilizando tecnologías modernas para crear aplicaciones funcionales, escalables y con excelente experiencia de usuario. Actualmente estoy completando mi formación en Ingeniería en Desarrollo y Gestión de Software, combinando conocimientos teóricos con experiencia práctica en proyectos reales."
+      "Soy Aaron Reyes, un desarrollador FullStack apasionado por crear soluciones tecnológicas innovadoras. Originario de Querétaro, México, me especializo en el desarrollo de aplicaciones web, móviles y multiplataforma, abarcando tanto frontend como backend.",
+      "Mi experiencia incluye arquitectura de software y consultoría tecnológica, ayudando a empresas y proyectos a seleccionar las mejores tecnologías y metodologías para sus necesidades específicas. Actualmente estoy completando mi formación en Ingeniería en Desarrollo y Gestión de Software.",
+      "Además de mi trabajo en desarrollo web y móvil, estoy explorando el fascinante mundo del desarrollo de videojuegos, aprendiendo herramientas como Unity y Godot para crear experiencias interactivas únicas."
     ]
   },
 
@@ -33,62 +34,101 @@ const portfolioData = {
   services: [
     {
       icon: "./assets/images/icon-dev.svg",
-      title: "Desarrollo Frontend",
-      description: "Creación de interfaces modernas y responsivas utilizando las últimas tecnologías web para una experiencia de usuario excepcional."
-    },
-    {
-      icon: "./assets/images/icon-design.svg",
-      title: "Desarrollo Backend",
-      description: "Desarrollo de APIs robustas y bases de datos eficientes para aplicaciones escalables y seguras."
+      title: "Desarrollo Web",
+      description: "Desarrollo completo de aplicaciones web modernas, desde el frontend hasta el backend, utilizando las últimas tecnologías y mejores prácticas."
     },
     {
       icon: "./assets/images/icon-app.svg",
-      title: "Aplicaciones Multiplataforma",
-      description: "Desarrollo de aplicaciones móviles y de escritorio que funcionan en múltiples plataformas con código optimizado."
+      title: "Desarrollo Móvil y Multiplataforma",
+      description: "Creación de aplicaciones móviles nativas y multiplataforma que funcionan perfectamente en iOS, Android y otras plataformas."
+    },
+    {
+      icon: "./assets/images/icon-design.svg",
+      title: "Arquitectura de Software",
+      description: "Diseño y planificación de arquitecturas de software escalables, mantenibles y eficientes para proyectos de cualquier tamaño."
     },
     {
       icon: "./assets/images/icon-photo.svg",
       title: "Consultoría Tecnológica",
-      description: "Asesoramiento en arquitectura de software y selección de tecnologías adecuadas para cada proyecto."
+      description: "Asesoramiento especializado en selección de tecnologías, metodologías de desarrollo y optimización de procesos tecnológicos."
     }
   ],
 
-  // Testimonials
-  testimonials: [
+  // Certifications and badges
+  certifications: [
     {
-      name: "Daniel Lewis",
-      avatar: "./assets/images/avatar-1.png",
-      text: "Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.",
-      date: "2021-06-14"
+      category: "Frontend Technologies",
+      badges: [
+        { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", level: "Expert" },
+        { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", level: "Expert" },
+        { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", level: "Expert" },
+        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", level: "Intermediate" },
+        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", level: "Expert" },
+        { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", level: "Intermediate" }
+      ]
     },
     {
-      name: "Jessica Miller",
-      avatar: "./assets/images/avatar-2.png",
-      text: "Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.",
-      date: "2021-07-10"
+      category: "Styling & UI",
+      badges: [
+        { name: "Tailwind CSS", icon: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg", level: "Expert" },
+        { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg", level: "Intermediate" },
+        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", level: "Intermediate" }
+      ]
     },
     {
-      name: "Emily Evans",
-      avatar: "./assets/images/avatar-3.png",
-      text: "Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.",
-      date: "2021-08-15"
+      category: "Backend Technologies",
+      badges: [
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", level: "Expert" },
+        { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", level: "Intermediate" },
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", level: "Intermediate" },
+        { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", level: "Intermediate" },
+        { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", level: "Intermediate" }
+      ]
     },
     {
-      name: "Henry William",
-      avatar: "./assets/images/avatar-4.png",
-      text: "Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.",
-      date: "2021-09-20"
+      category: "Mobile Development",
+      badges: [
+        { name: "React Native", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", level: "Intermediate" },
+        { name: "Expo", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", level: "Advanced" },
+        { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg", level: "Intermediate" },
+        { name: "Dart", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg", level: "Intermediate" },
+        { name: "Kotlin", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg", level: "Beginner" }
+      ]
+    },
+    {
+      category: "Databases",
+      badges: [
+        { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", level: "Advanced" },
+        { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", level: "Advanced" },
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", level: "Intermediate" },
+        { name: "SQL Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg", level: "Intermediate" }
+      ]
+    },
+    {
+      category: "DevOps & Tools",
+      badges: [
+        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", level: "Intermediate" },
+        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", level: "Advanced" },
+        { name: "GitHub Actions", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", level: "Advanced" },
+        { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", level: "Intermediate" },
+        { name: "Postman", icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg", level: "Advanced" }
+      ]
+    },
+    {
+      category: "Cloud & Deployment",
+      badges: [
+        { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", level: "Intermediate" },
+        { name: "Vercel", icon: "https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg", level: "Advanced" },
+        { name: "Render", icon: "https://www.vectorlogo.zone/logos/render/render-icon.svg", level: "Intermediate" }
+      ]
+    },
+    {
+      category: "Game Development (Learning)",
+      badges: [
+        { name: "Unity", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg", level: "Learning" },
+        { name: "Godot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg", level: "Learning" }
+      ]
     }
-  ],
-
-  // Client logos
-  clients: [
-    { logo: "./assets/images/logo-1-color.png", name: "Client 1", link: "#" },
-    { logo: "./assets/images/logo-2-color.png", name: "Client 2", link: "#" },
-    { logo: "./assets/images/logo-3-color.png", name: "Client 3", link: "#" },
-    { logo: "./assets/images/logo-4-color.png", name: "Client 4", link: "#" },
-    { logo: "./assets/images/logo-5-color.png", name: "Client 5", link: "#" },
-    { logo: "./assets/images/logo-6-color.png", name: "Client 6", link: "#" }
   ],
 
   // Education
