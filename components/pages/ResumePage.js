@@ -117,6 +117,29 @@ class ResumePage {
     }
   }
 
+  updateExperience(experienceData) {
+    const experienceLists = this.container.querySelectorAll('.timeline-list');
+    const experienceList = experienceLists[1]; // Second timeline list is for experience
+    if (experienceList && experienceData) {
+      experienceList.innerHTML = experienceData.map(item => `
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title">${item.title}</h4>
+          <span>${item.period}</span>
+          <p class="timeline-text">${item.description}</p>
+        </li>
+      `).join('');
+    }
+  }
+
+  updateSkills(skillsData) {
+    // This method can be used to update skills if you add a skills section in the future
+    // For now, it's a placeholder to prevent errors
+    if (skillsData) {
+      console.log('Skills data received:', skillsData);
+      // You can implement a skills section display here later
+    }
+  }
+
 }
 
 export default ResumePage;

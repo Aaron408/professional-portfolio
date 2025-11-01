@@ -17,7 +17,7 @@ class PageManager {
     if (!mainContent) return;
 
     // Create containers for each page
-    const pageNames = ['about', 'resume', 'portfolio', 'blog', 'contact'];
+    const pageNames = ['about', 'resume', 'portfolio', 'contact'];
     
     pageNames.forEach(pageName => {
       const container = Utils.createElement('div', {
@@ -144,13 +144,8 @@ class PageManager {
       }
     });
 
-    // Initial page from URL
-    const initialPage = this.getPageFromURL();
-    if (initialPage && this.pages.has(initialPage)) {
-      this.setDefaultPage(initialPage);
-    } else {
-      this.setDefaultPage();
-    }
+    // Don't automatically set initial page here
+    // Let PortfolioApp handle the initial page load to properly sync navigation
   }
 
   getPageFromURL() {

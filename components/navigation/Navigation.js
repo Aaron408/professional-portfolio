@@ -23,10 +23,7 @@ class Navigation {
             <button class="navbar-link" data-nav-link data-page="resume">Resume</button>
           </li>
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link data-page="portfolio">Portfolio</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link data-page="blog">Blog</button>
+            <button class="navbar-link" data-nav-link data-page="portfolio">Projects</button>
           </li>
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link data-page="contact">Contact</button>
@@ -78,9 +75,8 @@ class Navigation {
     
     if (targetLink) {
       this.setActiveLink(targetLink);
-      if (this.onNavigate) {
-        this.onNavigate(pageName);
-      }
+      // Don't call onNavigate here to avoid double navigation
+      // The navigation callback is already handled in PortfolioApp.navigateToPage
     }
   }
 }

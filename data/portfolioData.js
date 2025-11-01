@@ -118,8 +118,8 @@ const portfolioData = {
       category: "Cloud & Deployment",
       badges: [
         { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", level: "Intermediate" },
-        { name: "Vercel", icon: "https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg", level: "Advanced" },
-        { name: "Render", icon: "https://www.vectorlogo.zone/logos/render/render-icon.svg", level: "Intermediate" }
+        { name: "Vercel", icon: "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png", level: "Advanced" },
+        { name: "Render", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg", level: "Intermediate" }
       ]
     },
     {
@@ -142,20 +142,30 @@ const portfolioData = {
       title: "TSU en Desarrollo de Software Multiplataforma",
       period: "2022 — 2024",
       description: "Técnico Superior Universitario especializado en desarrollo de aplicaciones web y móviles multiplataforma. Enfoque en tecnologías modernas y mejores prácticas de desarrollo de software."
+    },
+    {
+      title: "Técnico en Programación",
+      period: "2019 — 2022",
+      description: "Formación técnica en fundamentos de programación y desarrollo de software. Base sólida en lógica de programación, algoritmos y estructuras de datos."
     }
   ],
 
   // Work experience
   experience: [
     {
-      title: "FullStack Developer",
+      title: "Desarrollador Freelance",
       period: "2023 — Presente",
-      description: "Desarrollo de aplicaciones web completas utilizando tecnologías modernas tanto en frontend como backend. Experiencia en la creación de soluciones escalables y mantenibles."
+      description: "Desarrollo de soluciones web y móviles personalizadas para clientes. Creación de aplicaciones completas desde el diseño hasta el despliegue, adaptándome a las necesidades específicas de cada proyecto."
     },
     {
-      title: "Desarrollador Frontend",
-      period: "2022 — 2023",
-      description: "Especialización en interfaces de usuario interactivas y responsivas. Implementación de diseños modernos con enfoque en la experiencia del usuario."
+      title: "Participante en Hackathons",
+      period: "2023 — 2025",
+      description: "Participación activa en competencias de desarrollo como 'The Way of the Future 2023' y hackathon UAQ 2025. Experiencia trabajando en equipos multidisciplinarios bajo presión, desarrollando soluciones tecnológicas innovadoras en tiempos limitados."
+    },
+    {
+      title: "Desarrollo de Proyectos Personales",
+      period: "2022 — Presente",
+      description: "Creación y mantenimiento de proyectos personales para experimentar con nuevas tecnologías y frameworks. Desarrollo de aplicaciones web, móviles y multiplataforma, incluyendo incursión en desarrollo de videojuegos con Unity y Godot."
     }
   ],
 
@@ -235,64 +245,6 @@ const portfolioData = {
       image: "./assets/images/project-9.png",
       link: "#",
       description: "Travel and booking platform"
-    }
-  ],
-
-  // Blog posts
-  blogPosts: [
-    {
-      title: "Design conferences in 2022",
-      category: "Design",
-      date: "2022-02-23",
-      formattedDate: "Feb 23, 2022",
-      image: "./assets/images/blog-1.jpg",
-      excerpt: "Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.",
-      link: "#"
-    },
-    {
-      title: "Best fonts every designer",
-      category: "Design",
-      date: "2022-02-23",
-      formattedDate: "Feb 23, 2022",
-      image: "./assets/images/blog-2.jpg",
-      excerpt: "Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.",
-      link: "#"
-    },
-    {
-      title: "Design digest #80",
-      category: "Design",
-      date: "2022-02-23",
-      formattedDate: "Feb 23, 2022",
-      image: "./assets/images/blog-3.jpg",
-      excerpt: "Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.",
-      link: "#"
-    },
-    {
-      title: "UI interactions of the week",
-      category: "Design",
-      date: "2022-02-23",
-      formattedDate: "Feb 23, 2022",
-      image: "./assets/images/blog-4.jpg",
-      excerpt: "Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.",
-      link: "#"
-    },
-    {
-      title: "The forgotten art of spacing",
-      category: "Design",
-      date: "2022-02-23",
-      formattedDate: "Feb 23, 2022",
-      image: "./assets/images/blog-5.jpg",
-      excerpt: "Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      link: "#"
-    },
-    {
-      title: "Design digest #79",
-      category: "Design",
-      date: "2022-02-23",
-      formattedDate: "Feb 23, 2022",
-      image: "./assets/images/blog-6.jpg",
-      excerpt: "Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.",
-      link: "#"
     }
   ],
 

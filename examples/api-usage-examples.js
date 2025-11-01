@@ -33,20 +33,6 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // 3. AGREGAR POSTS AL BLOG
-    console.log('📝 Agregando nuevo post...');
-    if (window.portfolioApp) {
-      window.portfolioApp.addBlogPost({
-        title: "Nuevo Post del Blog",
-        category: "Development",
-        date: "2025-01-01",
-        formattedDate: "Jan 1, 2025",
-        image: "./assets/images/blog-1.jpg",
-        excerpt: "Este es un ejemplo de cómo agregar posts dinámicamente.",
-        link: "#"
-      });
-    }
-
     // 4. NAVEGAR PROGRAMÁTICAMENTE
     setTimeout(() => {
       console.log('🧭 Navegando a Portfolio...');
@@ -182,7 +168,6 @@ window.portfolioAPI = {
   goToAbout: () => window.portfolioApp?.navigateToPage('about'),
   goToResume: () => window.portfolioApp?.navigateToPage('resume'),
   goToPortfolio: () => window.portfolioApp?.navigateToPage('portfolio'),
-  goToBlog: () => window.portfolioApp?.navigateToPage('blog'),
   goToContact: () => window.portfolioApp?.navigateToPage('contact'),
   
   // Función para agregar múltiples proyectos

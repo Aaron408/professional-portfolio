@@ -335,6 +335,9 @@ main {
   background: var(--bg-gradient-onyx);
   border-radius: 20px;
   overflow: hidden;
+  max-width: 80px;
+  min-width: 80px;
+  flex-shrink: 0;
 }
 
 .avatar-box img {
@@ -343,6 +346,7 @@ main {
   height: auto;
   object-fit: cover;
   transition: transform 0.3s ease;
+  aspect-ratio: 1 / 1;
 }
 
 .avatar-box img:hover {
@@ -1375,7 +1379,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   .sidebar {
-    max-height: 180px;
+    max-height: 200px;
     margin-bottom: 30px;
   }
 
@@ -1383,9 +1387,17 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
+  .avatar-box { 
+    border-radius: 20px;
+    max-width: none;
+    min-width: 0;
+    flex-shrink: 1;
+  }
 
-  .avatar-box img { width: 120px; }
+  .avatar-box img { 
+    width: 120px;
+    aspect-ratio: auto;
+  }
 
   .info-content .name { margin-bottom: 15px; }
 

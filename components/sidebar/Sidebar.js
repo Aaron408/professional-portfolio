@@ -97,26 +97,26 @@ class Sidebar {
 
           <div class="separator"></div>
 
-          <ul class="social-list">
-            <li class="social-item">
-              <a href="${social.facebook}" class="social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="${social.twitter}" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="${social.instagram}" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-    `;
+          </div>
+          </aside>
+          `;
+          // <ul class="social-list">
+          //   <li class="social-item">
+          //     <a href="${social.facebook}" class="social-link">
+          //       <ion-icon name="logo-facebook"></ion-icon>
+          //     </a>
+          //   </li>
+          //   <li class="social-item">
+          //     <a href="${social.twitter}" class="social-link">
+          //       <ion-icon name="logo-twitter"></ion-icon>
+          //     </a>
+          //   </li>
+          //   <li class="social-item">
+          //     <a href="${social.instagram}" class="social-link">
+          //       <ion-icon name="logo-instagram"></ion-icon>
+          //     </a>
+          //   </li>
+          // </ul>
 
     this.sidebar = this.container.querySelector("[data-sidebar]");
     this.sidebarBtn = this.container.querySelector("[data-sidebar-btn]");

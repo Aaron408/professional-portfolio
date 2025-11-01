@@ -4,7 +4,6 @@ import Navigation from './navigation/Navigation.js';
 import AboutPage from './pages/AboutPage.js';
 import ResumePage from './pages/ResumePage.js';
 import PortfolioPage from './pages/PortfolioPage.js';
-import BlogPage from './pages/BlogPage.js';
 import ContactPage from './pages/ContactPage.js';
 import TestimonialsModal from './common/TestimonialsModal.js';
 import PageManager from '../utils/PageManager.js';
@@ -105,7 +104,6 @@ class PortfolioApp {
     const aboutContainer = this.pageManager.getPageContainer('about');
     const resumeContainer = this.pageManager.getPageContainer('resume');
     const portfolioContainer = this.pageManager.getPageContainer('portfolio');
-    const blogContainer = this.pageManager.getPageContainer('blog');
     const contactContainer = this.pageManager.getPageContainer('contact');
 
     // Initialize page components with data
@@ -113,7 +111,6 @@ class PortfolioApp {
       about: new AboutPage(aboutContainer, portfolioData),
       resume: new ResumePage(resumeContainer),
       portfolio: new PortfolioPage(portfolioContainer),
-      blog: new BlogPage(blogContainer),
       contact: new ContactPage(contactContainer)
     };
 
@@ -145,7 +142,7 @@ class PortfolioApp {
 
       // Press numbers 1-5 to navigate between pages
       const pageNumbers = ['1', '2', '3', '4', '5'];
-      const pages = ['about', 'resume', 'portfolio', 'blog', 'contact'];
+      const pages = ['about', 'resume', 'portfolio', 'contact'];
       
       if (pageNumbers.includes(e.key) && e.ctrlKey) {
         e.preventDefault();
@@ -282,23 +279,28 @@ class PortfolioApp {
     this.components.sidebar.updateProfile(portfolioData.profile);
     this.components.sidebar.updateContacts(portfolioData.contacts);
 
-    // Update Resume page with education and skills
+    // Update Resume page with education, experience and skills
     this.components.pages.resume.updateEducation(portfolioData.education);
+    this.components.pages.resume.updateExperience(portfolioData.experience);
     this.components.pages.resume.updateSkills(portfolioData.skills);
-
-    // Load blog posts
-    this.components.pages.blog.loadBlogPosts(portfolioData.blogPosts);
 
     // Update contact page map
     this.components.pages.contact.updateMapLocation(portfolioData.contacts.mapEmbedUrl);
 
-    // Restore last visited page
+    // Determine initial page: URL param > localStorage > default
+    const urlPage = this.pageManager.getPageFromURL();
     const lastPage = Utils.storage.get('lastPage');
-    if (lastPage && this.pageManager.pages.has(lastPage)) {
-      this.navigateToPage(lastPage);
-    } else {
-      this.navigateToPage(portfolioData.settings.defaultPage);
+    
+    let initialPage = portfolioData.settings.defaultPage;
+    
+    if (urlPage && this.pageManager.pages.has(urlPage)) {
+      initialPage = urlPage;
+    } else if (lastPage && this.pageManager.pages.has(lastPage)) {
+      initialPage = lastPage;
     }
+    
+    // Navigate to the initial page (this will sync both page content and navigation UI)
+    this.navigateToPage(initialPage);
   }
 
   setTheme(theme) {
@@ -307,8 +309,11 @@ class PortfolioApp {
   }
 
   navigateToPage(pageName) {
+    // Update navigation UI first
+    this.components.navigation.navigateToPage(pageName);
+    
+    // Then show the page
     if (this.pageManager.showPage(pageName)) {
-      this.components.navigation.navigateToPage(pageName);
       Utils.storage.set('lastPage', pageName);
       return true;
     }
@@ -331,12 +336,6 @@ class PortfolioApp {
   addProject(projectData) {
     if (this.components.pages.portfolio) {
       this.components.pages.portfolio.addProject(projectData);
-    }
-  }
-
-  addBlogPost(postData) {
-    if (this.components.pages.blog) {
-      this.components.pages.blog.addBlogPost(postData);
     }
   }
 
