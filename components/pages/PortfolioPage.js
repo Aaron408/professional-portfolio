@@ -1,6 +1,7 @@
 class PortfolioPage {
-  constructor(container) {
+  constructor(container, projects = []) {
     this.container = container;
+    this.projects = projects;
     this.filterButtons = [];
     this.filterItems = [];
     this.selectElement = null;
@@ -14,6 +15,22 @@ class PortfolioPage {
   }
 
   render() {
+    // Generate projects HTML dynamically
+    const projectsHTML = this.projects.map(project => `
+      <li class="project-item active" data-filter-item data-category="${project.category}">
+        <a href="${project.link || '#'}">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+            <img src="${project.image}" alt="${project.title}" loading="lazy">
+          </figure>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-category">${this.capitalizeCategory(project.category)}</p>
+        </a>
+      </li>
+    `).join('');
+
     this.container.innerHTML = `
       <article class="portfolio" data-page="portfolio">
         <header>
@@ -61,120 +78,19 @@ class PortfolioPage {
           </div>
 
           <ul class="project-list">
-            <li class="project-item active" data-filter-item data-category="web development">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
-                <h3 class="project-title">Finance</h3>
-                <p class="project-category">Web development</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="web development">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-                <h3 class="project-title">Orizon</h3>
-                <p class="project-category">Web development</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="web design">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-                <h3 class="project-title">Fundo</h3>
-                <p class="project-category">Web design</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="applications">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-                <h3 class="project-title">Brawlhalla</h3>
-                <p class="project-category">Applications</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="web design">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-                <h3 class="project-title">DSM.</h3>
-                <p class="project-category">Web design</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="web design">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-                <h3 class="project-title">MetaSpark</h3>
-                <p class="project-category">Web design</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="web development">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-                <h3 class="project-title">Summary</h3>
-                <p class="project-category">Web development</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="applications">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-                <h3 class="project-title">Task Manager</h3>
-                <p class="project-category">Applications</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="web development">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-                <h3 class="project-title">Arrival</h3>
-                <p class="project-category">Web development</p>
-              </a>
-            </li>
+            ${projectsHTML}
           </ul>
         </section>
       </article>
     `;
 
     this.initializeElements();
+  }
+
+  capitalizeCategory(category) {
+    return category.split(' ').map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ');
   }
 
   initializeElements() {

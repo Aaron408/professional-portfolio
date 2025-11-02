@@ -110,7 +110,7 @@ class PortfolioApp {
     this.components.pages = {
       about: new AboutPage(aboutContainer, portfolioData),
       resume: new ResumePage(resumeContainer),
-      portfolio: new PortfolioPage(portfolioContainer),
+      portfolio: new PortfolioPage(portfolioContainer, portfolioData.projects),
       contact: new ContactPage(contactContainer)
     };
 
